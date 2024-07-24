@@ -23,9 +23,11 @@ const firebaseConfig = {
   };
   
   
-  
-  
-  
+  const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export async function ambilDaftarAbsensi() {
+  const refDokumen = collection(db, "absensi_siswa");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
 
@@ -33,21 +35,16 @@ const firebaseConfig = {
   cuplikanKueri.forEach((dok) => {
     hasil.push({
       id: dok.id,
-      tanggal: dok.data(). tanggal,
+      tanggal: dok.data().tanggal,
       nis: dok.data().nis,
       nama: dok.data().nama,
-      alamat: dok.data(). alamat,
-      notlpn: dok.data(). notlpn,
-      kelas: dok.data(). kelas,
-      keterangan: dok.data(). keterangan,
+      alamat: dok.data().alamat,
+      notlpn: dok.data().notlpn,
+      kelas: dok.data().kelas,
+      keterangan: dok.data().keterangan,
+      
     });
   });
-
-
-
-
-
-
 
 
 
@@ -60,7 +57,7 @@ export function formatAngka(x) {
 
 export async function tambahAbsensi(tanggal, nis, nama, alamat, noTlpn, kelas, keterangan) {
   try {
-    const dokRef = await addDoc(collection(db, 'absensi'), {
+    const dokRef = await addDoc(collection(db, 'absensi_siswa'), {
       tanggal: tanggal,
       nis: nis,
       nama: nama,
@@ -76,7 +73,7 @@ export async function tambahAbsensi(tanggal, nis, nama, alamat, noTlpn, kelas, k
 }
 
 export async function hapusAbsensi(docId) {
-  await deleteDoc(doc(db, "absensi", docId));
+  await deleteDoc(doc(db, "absensi_siswa", docId));
 }
 
 export async function ubahPembeli(docId, nama, alamat, noTlpn) {
@@ -87,9 +84,9 @@ export async function ubahPembeli(docId, nama, alamat, noTlpn) {
   });
 }
 
-export async function ambilPembeli(docId) {
+export async function ambilPembeli(docId) 
   const docRef = await doc(db, "pembeli", docId);
   const docSnap = await getDoc(docRef);
-
+  
   return await docSnap.data();
 }

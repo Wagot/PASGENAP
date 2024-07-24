@@ -18,7 +18,7 @@
 
 
 
-  <table class="table" id="daftar-absensi">
+  <table class="table" id="absensi-siswa">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -76,7 +76,7 @@
     import { ambilDaftarAbsensi, formatAngka, hapusAbsensi } from './main.js';
 
     $(document).ready(async function() {
-      let elemenDaftar = $("#daftar-absensi > tbody");
+      let elemenDaftar = $("#absensi-siswa > tbody");
       let daftarAbsensi = await ambilDaftarAbsensi();
       let nomor = 1;
 
@@ -108,7 +108,7 @@
       })
 
       $('.link-ubah').click(async function() {
-        window.location.replace('ubah-produk.html?docId=' + $(this).attr('data'));
+        window.location.replace('form-absensi.html?docId=' + $(this).attr('data'));
       })
 
       $('#loader').hide();
