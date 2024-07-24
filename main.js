@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import {
   getFirestore,
   collection,
@@ -10,20 +10,21 @@ import {
   query,
   orderBy,
   updateDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyATgcvem8XVd_Au44mcR2FKjKctx1MmZsQ",
-    authDomain: "produl.firebaseapp.com",
-    projectId: "produl",
-    storageBucket: "produl.appspot.com",
-    messagingSenderId: "77023582951",
-    appId: "1:77023582951:web:5fd60105e5b08cda366042",
-    measurementId: "G-G6X2VN52QK"
-  };
-  
-  
-  const app = initializeApp(firebaseConfig);
+  apiKey: "AIzaSyATgcvem8XVd_Au44mcR2FKjKctx1MmZsQ",
+  authDomain: "produl.firebaseapp.com",
+  projectId: "produl",
+  storageBucket: "produl.appspot.com",
+  messagingSenderId: "77023582951",
+  appId: "1:77023582951:web:5fd60105e5b08cda366042",
+  measurementId: "G-G6X2VN52QK"
+};
+
+// Inisialisasi Firebase
+const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambilDaftarAbsensi() {
@@ -49,20 +50,20 @@ export async function ambilDaftarAbsensi() {
 
 
   return hasil;
-
+}
 
 export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahAbsensi(tanggal, nis, nama, alamat, noTlpn, kelas, keterangan) {
+export async function tambahAbsensi(tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
   try {
     const dokRef = await addDoc(collection(db, 'absensi_siswa'), {
       tanggal: tanggal,
       nis: nis,
       nama: nama,
       alamat: alamat,
-      noTlpn: noTlpn,
+      notlpn: notlpn,
       kelas: kelas,
       keterangan: keterangan
     });
@@ -80,13 +81,13 @@ export async function ubahPembeli(docId, nama, alamat, noTlpn) {
   await updateDoc(doc(db, "pembeli", docId), {
     nama: nama,
     alamat: alamat,
-    noTlpn: noTlpn
+    notlpn: notlpn
   });
 }
 
-export async function ambilPembeli(docId) 
+export async function ambilPembeli(docId) {
   const docRef = await doc(db, "pembeli", docId);
   const docSnap = await getDoc(docRef);
-  
+
   return await docSnap.data();
 }
