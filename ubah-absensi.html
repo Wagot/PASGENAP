@@ -24,24 +24,24 @@
   <form class="mb-3">
     <div class="mb-3">
       <div class="mb-3">
-        <label class="form-label">Tangal</label>
+        <label class="form-label">tanggal</label>
         <input type="date" class="form-control" id="input-tanggal">
       </div>
       <div class="mb-3">
-        <label class="form-label">Nis</label>
+        <label class="form-label">nis</label>
         <input type="text" class="form-control" id="input-nis">
       </div>
       <div class="mb-3">
-        <label class="form-label">Nama</label>
+        <label class="form-label">nama</label>
         <input type="text" class="form-control" id="input-nama">
       </div>
       <div class="mb-3">
-        <label class="form-label">Alamat</label>
+        <label class="form-label">alamat</label>
         <input type="text" class="form-control" id="input-alamat">
       </div>
       <div class="mb-3">
         <label class="form-label">notlpn</label>
-        <input type="text" class="form-control" id="input-noTlpn">
+        <input type="text" class="form-control" id="input-notlpn">
       </div>
       <div class="mb-3">
         <label class="form-label">Kelas</label>
@@ -64,7 +64,7 @@
     let elemenNis = document.getElementById('input-nis');
     let elemenNama = document.getElementById('input-nama');
     let elemenAlamat = document.getElementById('input-alamat');
-    let elemenNoTlpn = document.getElementById('input-noTlpn');
+    let elemenNoTlpn = document.getElementById('input-notlpn');
     let elemenKelas = document.getElementById('input-kelas');
     let elemenKeterangan = document.getElementById('input-keterangan');
 
@@ -73,18 +73,18 @@
     const docId = parameterURL.get('docId')
     const absensi = await ambilAbsensi(docId);
 
-    elemenTanggal.value = absensi.tanggal;
-    elemenNis.value = absensi.nis;
-    elemenNama.value = absensi.nama;
-    elemenAlamat.value = absensi.alamat;
-    elemenNoTlpn.value = absensi.noTlpn;
-    elemenKelas.value = absensi.kelas;
-    elemenKeterangan.value = absensi.keterangan;
+    elementanggal.value = absensi.tanggal;
+    elemennis.value = absensi.nis;
+    elemennama.value = absensi.nama;
+    elemenalamat.value = absensi.alamat;
+    elemennoTlpn.value = absensi.noTlpn;
+    elemenkelas.value = absensi.kelas;
+    elemenketerangan.value = absensi.keterangan;
 
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahAbsensi(docId, elemenTanggal.value, elemenNis.value, elemenNama.value, elemenAlamat.value, elemenNoTlpn.value, elemenKelas.value, elemenKeterangan.value);
+      await ubahAbsensi(docId, elementanggal.value, elemennis.value, elemennama.value, elemenalamat.value, elemennotlpn.value, elemenkelas.value, elemenketerangan.value);
       window.location.href = 'index.html';
     });
   </script>
