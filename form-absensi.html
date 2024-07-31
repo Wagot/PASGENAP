@@ -55,19 +55,19 @@
   <script type="module">
     import { tambahAbsensi } from './main.js';
 
-    let tombolTambah = document.getElementById('tombol-tambah');
-    let elemenTanggal = document.getElementById('input-tanggal');
-    let elemenNis = document.getElementById('input-nis');
-    let elemenNama = document.getElementById('input-nama');
-    let elemenAlamat = document.getElementById('input-alamat');
-    let elemenNoTlpn = document.getElementById('input-notlpn');
-    let elemenKelas = document.getElementById('input-kelas');
-    let elemenKeterangan = document.getElementById('input-keterangan')
+    let tomboltambah = document.getElementById('tombol-tambah');
+    let elementanggal = document.getElementById('input-tanggal');
+    let elemennis = document.getElementById('input-nis');
+    let elemennama = document.getElementById('input-nama');
+    let elemenalamat = document.getElementById('input-alamat');
+    let elemenNotlpn = document.getElementById('input-notlpn');
+    let elemenkelas = document.getElementById('input-kelas');
+    let elemenketerangan = document.getElementById('input-keterangan')
 
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahAbsensi(elemenTanggal.value, elemenNis.value, elemenNama.value, elemenAlamat.value, elemenNoTlpn.value, elemenKelas.value, elemenKeterangan.valu ,e);
-      window.location.href = 'index.html'
+      await tambahAbsensi(elementanggal.value, elemennis.value, elemennama.value, elemenalamat.value, elemenNotlpn.value, elemenkelas.value, elemenketerangan.valu ,e);
+     // window.location.href = 'index.html'
     })
   </script>
   <footer class="py-3 bg-dark-subtle mt-auto">
