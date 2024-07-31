@@ -28,7 +28,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambilDaftarAbsensi() {
-  const refDokumen = collection(db, "absensi_siswa");
+  const refDokumen = collection(db, "absensi");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
 
@@ -58,7 +58,7 @@ export function formatAngka(x) {
 
 export async function tambahAbsensi(tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
   try {
-    const dokRef = await addDoc(collection(db, 'absensi_siswa'), {
+    const dokRef = await addDoc(collection(db, 'absensi'), {
       tanggal: tanggal,
       nis: nis,
       nama: nama,
