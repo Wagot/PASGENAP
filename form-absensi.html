@@ -18,15 +18,15 @@
 
   <form class="mb-3">
     <div class="mb-3">
-      <label class="form-label">Tanggal</label>
+      <label class="form-label">tanggal</label>
       <input type="date" class="form-control" id="input-tanggal">
     </div>
     <div class="mb-3">
-      <label class="form-label">Nis</label>
+      <label class="form-label">nis</label>
       <input type="text" class="form-control" id="input-nis">
     </div>
     <div class="mb-3">
-      <label class="form-label">Nama</label>
+      <label class="form-label">nama</label>
       <input type="text" class="form-control" id="input-nama">
     </div>
     <div class="mb-3">
@@ -34,18 +34,18 @@
       <input type="text" class="form-control" id="input-alamat">
     </div>
     <div class="mb-3">
-      <label class="form-label">Notlpn</label>
+      <label class="form-label">notlpn</label>
       <input type="text" class="form-control" id="input-notlpn">
     </div>
     <div class="mb-3">
-      <label class="form-label">Kelas</label>
+      <label class="form-label">kelas</label>
       <input type="text" class="form-control" id="input-kelas">
     </div>
     <div class="mb-3">
       <label class="form-label">Keterangan</label>
       <input type="text" class="form-control" id="input-keterangan">
     </div>
-    <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
+    <button type="submit" class="btn btn-primary" id="tombol-tambah">simpan</button>
   </form>
 
   <div class="d-flex justify-content-center">
@@ -66,7 +66,7 @@
 
     tomboltambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahAbsensi(elementanggal.value, elemennis.value, elemennama.value, elemenalamat.value, elemenNotlpn.value, elemenkelas.value, elemenketerangan.valu ,e);
+      await tambahAbsensi(elementanggal.value, elemennis.value, elemennama.value, elemenalamat.value, elemennotlpn.value, elemenkelas.value, elemenketerangan.valu ,e);
      window.location.href = 'index.html'
     })
   </script>
