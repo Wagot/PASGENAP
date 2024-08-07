@@ -1,39 +1,40 @@
 <!DOCTYPE html>
+<html lang="en" class="h-100">
 <html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Data Absensi Siswa</title>
-  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
-<body class="m-3">
-  <h1>Absesi_Siswa</h1>
+<body>
+  
+  <h1>Daftar Absen Siswa</h1>
 
-  <table class="table" id="absensi-siswa">
+
+
+  <table class="table" id="daftar-absensi">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">tanggal</th>
-        <th scope="col">nis</th>
-        <th scope="col">nama</th>
-        <th scope="col">alamat</th>
-        <th scope="col">notlpn</th>
-        <th scope="col">kelas</th>
-        <th scope="col">keterangan</th>
-        
+        <th scope="col">Tanggal</th>
+        <th scope="col">NIS</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">No.Tlpn</th>
+        <th scope="col">Kelas</th>
+        <th scope="col">Keterangan</th>
+        <th scope="col">Tombol</th>
       </tr>
     </thead>
     <tbody>
     </tbody>
   </table>
-
-  
 
   <div class="d-flex justify-content-center">
     <img src="loader.gif" style="width: 15em; display: block" id="loader">
@@ -75,7 +76,7 @@
     import { ambilDaftarAbsensi, formatAngka, hapusAbsensi } from './main.js';
 
     $(document).ready(async function() {
-      let elemenDaftar = $("#absensi-siswa > tbody");
+      let elemenDaftar = $("#daftar-absensi > tbody");
       let daftarAbsensi = await ambilDaftarAbsensi();
       let nomor = 1;
 
@@ -88,7 +89,7 @@
           '<td>' + data.tanggal + '</td>' +
           '<td>' + data.nis + '</td>' +
           '<td>' + data.nama + '</td>' +
-          '<td>' + data.alamat + '</td>' + '<td>' + data.notlpn + '</td>' + '<td>' + data.kelas + '</td>' + '<td>' + data.keterangan + '</td>' +
+          '<td>' + data.alamat + '</td>' + '<td>' + data.noTlpn + '</td>' + '<td>' + data.kelas + '</td>' + '<td>' + data.keterangan + '</td>' +
           '<td class="stack-up">' +
           ' <a href="#" class="btn btn-warning link-ubah"  data="' +
           data.id +
@@ -114,10 +115,11 @@
 
     });
   </script>
-   <footer class="py-3 bg-dark-subtle mt-auto">
+   <footer class="site-footer section-padding">
+
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
-      <li class="nav-item"><a href="form-absensi.html" id="link-login-penjual" class="nav-link px-2 text-body-secondary">tambah data</a></li>
+      <li class="nav-item"><a href="forum-absensi.html" id="link-login-penjual" class="nav-link px-2 text-body-secondary">tambah data</a></li>
     </ul>
     <p class="text-center text-body-secondary">&copy; </p>
   </footer>

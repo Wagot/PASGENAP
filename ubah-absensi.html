@@ -24,24 +24,24 @@
   <form class="mb-3">
     <div class="mb-3">
       <div class="mb-3">
-        <label class="form-label">tanggal</label>
+        <label class="form-label">Tangal</label>
         <input type="date" class="form-control" id="input-tanggal">
       </div>
       <div class="mb-3">
-        <label class="form-label">nis</label>
+        <label class="form-label">Nis</label>
         <input type="text" class="form-control" id="input-nis">
       </div>
       <div class="mb-3">
-        <label class="form-label">nama</label>
+        <label class="form-label">Nama</label>
         <input type="text" class="form-control" id="input-nama">
       </div>
       <div class="mb-3">
-        <label class="form-label">alamat</label>
+        <label class="form-label">Alamat</label>
         <input type="text" class="form-control" id="input-alamat">
       </div>
       <div class="mb-3">
-        <label class="form-label">notlpn</label>
-        <input type="text" class="form-control" id="input-notlpn">
+        <label class="form-label">No.tlpn</label>
+        <input type="text" class="form-control" id="input-noTlpn">
       </div>
       <div class="mb-3">
         <label class="form-label">Kelas</label>
@@ -57,14 +57,14 @@
   </form>
 
   <script type="module">
-    import { ambilabsensi, ubahabsensi } from './main.js';
+    import { ambilAbsensi, ubahAbsensi } from './main.js';
 
     let tombolUbah = document.getElementById('tombol-ubah');
-    let elementanggal = document.getElementById('input-tanggal');
-    let elemennis = document.getElementById('input-nis');
+    let elemenTanggal = document.getElementById('input-tanggal');
+    let elemenNis = document.getElementById('input-nis');
     let elemenNama = document.getElementById('input-nama');
     let elemenAlamat = document.getElementById('input-alamat');
-    let elemennotlpn = document.getElementById('input-notlpn');
+    let elemenNoTlpn = document.getElementById('input-noTlpn');
     let elemenKelas = document.getElementById('input-kelas');
     let elemenKeterangan = document.getElementById('input-keterangan');
 
@@ -73,18 +73,18 @@
     const docId = parameterURL.get('docId')
     const absensi = await ambilAbsensi(docId);
 
-    elementanggal.value = absensi.tanggal;
-    elemennis.value = absensi.nis;
-    elemennama.value = absensi.nama;
-    elemenalamat.value = absensi.alamat;
-    elemennotlpn.value = absensi.notlpn;
-    elemenkelas.value = absensi.kelas;
-    elemenketerangan.value = absensi.keterangan;
+    elemenTanggal.value = absensi.tanggal;
+    elemenNis.value = absensi.nis;
+    elemenNama.value = absensi.nama;
+    elemenAlamat.value = absensi.alamat;
+    elemenNoTlpn.value = absensi.noTlpn;
+    elemenKelas.value = absensi.kelas;
+    elemenKeterangan.value = absensi.keterangan;
 
 
     tombolUbah.addEventListener('click', async function(el) {
       el.preventDefault();
-      await ubahAbsensi(docId, elementanggal.value, elemennis.value, elemennama.value, elemenalamat.value, elemennotlpn.value, elemenkelas.value, elemenketerangan.value);
+      await ubahAbsensi(docId, elemenTanggal.value, elemenNis.value, elemenNama.value, elemenAlamat.value, elemenNoTlpn.value, elemenKelas.value, elemenKeterangan.value);
       window.location.href = 'index.html';
     });
   </script>
