@@ -67,7 +67,7 @@ export async function tambahAbsensi(tanggal, nis, nama, alamat, notlpn, kelas, k
       kelas: kelas,
       keterangan: keterangan
     });
-    console.log('berhasil menembah ' + dokRef.id);
+    console.log('berhasil menambah ' + dokRef.id);
   } catch (e) {
     console.log('gagal menambah ' + e);
   }
@@ -77,7 +77,7 @@ export async function hapusAbsensi(docId) {
   await deleteDoc(doc(db, "absensi", docId));
 }
 
-export async function ubahabsensi(docId, nama, alamat, noTlpn) {
+export async function ubahAbsensi(docId, nama, alamat, notlpn) {
   await updateDoc(doc(db, "absensi", docId), {
     nama: nama,
     alamat: alamat,
@@ -85,8 +85,8 @@ export async function ubahabsensi(docId, nama, alamat, noTlpn) {
   });
 }
 
-export async function ambilPembeli(docId) {
-  const docRef = await doc(db, "pembeli", docId);
+export async function ambilAbsensi(docId) {
+  const docRef = await doc(db, "absensi", docId);
   const docSnap = await getDoc(docRef);
 
   return await docSnap.data();

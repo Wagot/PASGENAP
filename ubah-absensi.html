@@ -57,14 +57,14 @@
   </form>
 
   <script type="module">
-    import { ambilAbsensi, ubahAbsensi } from './main.js';
+    import { ambilabsensi, ubahabsensi } from './main.js';
 
     let tombolUbah = document.getElementById('tombol-ubah');
-    let elemenTanggal = document.getElementById('input-tanggal');
-    let elemenNis = document.getElementById('input-nis');
+    let elementanggal = document.getElementById('input-tanggal');
+    let elemennis = document.getElementById('input-nis');
     let elemenNama = document.getElementById('input-nama');
     let elemenAlamat = document.getElementById('input-alamat');
-    let elemenNoTlpn = document.getElementById('input-notlpn');
+    let elemennotlpn = document.getElementById('input-notlpn');
     let elemenKelas = document.getElementById('input-kelas');
     let elemenKeterangan = document.getElementById('input-keterangan');
 
@@ -77,7 +77,7 @@
     elemennis.value = absensi.nis;
     elemennama.value = absensi.nama;
     elemenalamat.value = absensi.alamat;
-    elemennoTlpn.value = absensi.noTlpn;
+    elemennotlpn.value = absensi.notlpn;
     elemenkelas.value = absensi.kelas;
     elemenketerangan.value = absensi.keterangan;
 
